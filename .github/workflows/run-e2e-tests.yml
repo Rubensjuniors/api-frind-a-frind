@@ -8,7 +8,7 @@ jobs:
       postgres:
         image: bitnami/postgresql
         ports:
-          - 5672:5672
+          - 5432:5432
         env:
           POSTGRESQL_USERNAME: desafio
           POSTGRESQL_PASSWORD: desafio
@@ -23,4 +23,4 @@ jobs:
       - run: npm run test:e2e
         env:
           JWT_SECRET: testing
-          DATABASE_URL: "postgresql://desafio:desafio@localhost:5672/frindafrind?schema=public"
+          DATABASE_URL: "postgresql://desafio:desafio@localhost:5432/frindafrind?schema=public"
