@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5672:5672
+    environment:
+      - POSTGRESQL_USERNAME=desafio
+      - POSTGRESQL_PASSWORD=desafio
+      - POSTGRESQL_DATABASE=frindafrind
