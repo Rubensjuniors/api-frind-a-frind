@@ -5,13 +5,16 @@ CREATE TYPE "EntityType" AS ENUM ('USER', 'ORGANIZATION');
 CREATE TYPE "PetType" AS ENUM ('DOG', 'CAT', 'OTHER');
 
 -- CreateEnum
-CREATE TYPE "PetSize" AS ENUM ('small', 'medium', 'large');
+CREATE TYPE "AgeTypes" AS ENUM ('PUPPY', 'ADULT', 'SENIOR');
 
 -- CreateEnum
-CREATE TYPE "PetEnergy" AS ENUM ('little', 'medium', 'many');
+CREATE TYPE "PetSize" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
 
 -- CreateEnum
-CREATE TYPE "PetIndependence" AS ENUM ('low', 'medium', 'high');
+CREATE TYPE "PetEnergy" AS ENUM ('LITTLE', 'MEDIUM', 'MANY');
+
+-- CreateEnum
+CREATE TYPE "PetIndependence" AS ENUM ('LOW', 'MEDIUM', 'HIGH');
 
 -- CreateTable
 CREATE TABLE "users" (
@@ -47,9 +50,10 @@ CREATE TABLE "pets" (
     "name" TEXT NOT NULL,
     "about" TEXT NOT NULL,
     "age" INTEGER NOT NULL,
-    "size" "PetSize" NOT NULL,
+    "life_stage" "PetSize" NOT NULL,
     "energy" "PetEnergy" NOT NULL,
     "independence" "PetIndependence" NOT NULL,
+    "city" TEXT NOT NULL,
     "environment" TEXT NOT NULL,
     "photos" TEXT[] DEFAULT ARRAY[]::TEXT[],
     "cover_photo" TEXT NOT NULL,

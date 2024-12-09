@@ -73,7 +73,7 @@ app.register(fastifyCookie)
 // application routes
 // app.register()
 
-// Set errors
+// Set errors OK
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
     return reply.status(400).send({

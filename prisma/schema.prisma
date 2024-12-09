@@ -18,22 +18,28 @@ enum PetType {
   OTHER
 }
 
+enum LifeStageTypes {
+  PUPPY
+  ADULT
+  SENIOR
+}
+
 enum PetSize {
-  small
-  medium
-  large
+  SMALL
+  MEDIUM
+  LARGE
 }
 
 enum PetEnergy {
-  little
-  medium
-  many
+  LITTLE
+  MEDIUM
+  MANY
 }
 
 enum PetIndependence {
-  low
-  medium
-  high
+  LOW
+  MEDIUM
+  HIGH
 }
 
 model User {
@@ -67,10 +73,10 @@ model Pet {
   id           String          @id @default(uuid())
   name         String
   about        String
-  age          Int
-  size         PetSize
+  life_stage   LifeStageTypes
   energy       PetEnergy
   independence PetIndependence
+  city         String
   environment  String
   photos       String[]        @default([])
   cover_photo  String
