@@ -13,6 +13,7 @@ import {
 import { ZodError } from 'zod'
 
 import { env } from './env'
+import { registeRoutes } from './routes/register'
 
 export const app = fastify().withTypeProvider()
 
@@ -71,7 +72,7 @@ app.register(fastifySwaggerUi, {
 app.register(fastifyCookie)
 
 // application routes
-// app.register()
+app.register(registeRoutes)
 
 // Set errors OK
 app.setErrorHandler((error, _, reply) => {
