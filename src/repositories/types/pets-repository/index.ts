@@ -8,6 +8,7 @@ import {
 } from '@prisma/client'
 
 export type CharacteristicsParams = {
+  city: string
   life_stage?: LifeStageTypes
   energy?: PetEnergy
   size?: PetSize
@@ -16,6 +17,6 @@ export type CharacteristicsParams = {
 
 export interface PetsRepository {
   findById(id: string): Promise<Pet | null>
-  getPets(city: string, data?: CharacteristicsParams): Promise<Pet[] | null>
+  fetchPets(data: CharacteristicsParams): Promise<Pet[] | null>
   create(data: Prisma.PetCreateInput): Promise<Pet>
 }

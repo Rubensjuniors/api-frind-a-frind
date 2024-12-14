@@ -16,10 +16,9 @@ export class PrismaPetsRepository implements PetsRepository {
     return pet
   }
 
-  async getPets(city: string, data: CharacteristicsParams) {
+  async fetchPets(data: CharacteristicsParams) {
     const pets = prisma.pet.findMany({
       where: {
-        city,
         ...data,
       },
     })

@@ -15,6 +15,7 @@ import { ZodError } from 'zod'
 import { env } from './env'
 import { registeRoutes } from './routes/register'
 import { authenticateRoutes } from './routes/authenticate'
+import { petsRoutes } from './routes/pet'
 
 export const app = fastify().withTypeProvider()
 
@@ -75,6 +76,7 @@ app.register(fastifyCookie)
 // application routes
 app.register(registeRoutes)
 app.register(authenticateRoutes)
+app.register(petsRoutes)
 
 // Set errors OK
 app.setErrorHandler((error, _, reply) => {
