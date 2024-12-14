@@ -56,7 +56,10 @@ export async function authenticate(
     )
 
     const refreshToken = await reply.jwtSign(
-      {},
+      {
+        ...userOrOrg,
+        password_hash: undefined,
+      },
       {
         sign: {
           sub: userOrOrg.id,
