@@ -1,5 +1,5 @@
 import { EmailAlreadyRegisteredError } from '@/errors/EmailAlreadyRegisteredError'
-import { makeRegisterUserUseCase } from '@/use-cases/resgister/make-register-case'
+import { makeRegisterUseCase } from '@/use-cases/resgister/make-register-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
 
@@ -19,8 +19,8 @@ export async function registerUser(
   )
 
   try {
-    const resgisterUserUseCase = makeRegisterUserUseCase()
-    await resgisterUserUseCase.execute({
+    const resgisterUserUseCase = makeRegisterUseCase()
+    await resgisterUserUseCase.registerUser({
       email,
       name,
       password,

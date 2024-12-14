@@ -1,5 +1,5 @@
 import { EmailAlreadyRegisteredError } from '@/errors/EmailAlreadyRegisteredError'
-import { makeRegisterOrganizationUseCase } from '@/use-cases/resgister/make-register-case'
+import { makeRegisterUseCase } from '@/use-cases/resgister/make-register-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
 
@@ -21,8 +21,8 @@ export async function registerOrganization(
     requestBodySchema.parse(request.body)
 
   try {
-    const resgisterOrganizationUseCase = makeRegisterOrganizationUseCase()
-    await resgisterOrganizationUseCase.execute({
+    const resgisterOrganizationUseCase = makeRegisterUseCase()
+    await resgisterOrganizationUseCase.registerOrganization({
       email,
       cep,
       name,

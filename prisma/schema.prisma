@@ -60,6 +60,7 @@ model Organization {
   email         String     @unique
   password_hash String
   photo_url     String?
+  created_at    DateTime   @default(now())
   entityType    EntityType @default(ORGANIZATION)
   cep           String
   street        String
